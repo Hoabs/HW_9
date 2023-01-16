@@ -1,12 +1,18 @@
-﻿int m =-1, n =15;
-int sum = 0;
-
-for (int i = m; i <= n; i++)
+﻿int rec(int m, int n)
 {
-    if (i>0)
+    if (m < 0)
     {
-        sum+=i;
+        m = 0;
     }
+
+    if (n < m)
+    {
+        return 0;
+    }
+
+    return rec(m, n - 1) + n;
 }
 
-Console.WriteLine(sum);
+int m = 4, n = 8;
+
+Console.WriteLine(rec(m, n));
